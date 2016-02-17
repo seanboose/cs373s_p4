@@ -29,19 +29,17 @@ public class InputPin {
     }
     
     public String toString() {
-        return parent.name +"."+ this.name;
+        return nameOfGate() +"."+ this.name;
+    }
+    
+    public String nameOfGate() {
+        return parent.name;
     }
     
     // CONSTRAINT METHODS
     
     public boolean isUsed() {
-	    // TODO
-        return false;
-    }
-    
-    public String nameOfGate() {
-	    // TODO
-        return null;
+        return (wire != null);
     }
     
     // EVALUATION METHODS

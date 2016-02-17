@@ -29,7 +29,7 @@ public class OutputPin {
     }
     
     public String toString() {
-        return parent.name +"."+ this.name;
+        return nameOfGate() +"."+ this.name;
     }
     
     public String nameOfGate() {
@@ -39,8 +39,7 @@ public class OutputPin {
     // CONSTRAINT METHODS
     
     public boolean isUsed() {
-	    // TODO
-        return false;
+        return (wire != null);
     }
     
     // EVALUATION METHODS

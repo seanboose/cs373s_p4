@@ -13,7 +13,7 @@ import java.util.LinkedList;
  */
 abstract public class  Printable {
 
-    static LinkedList<LinkedList<? extends Printable>> dbTable;
+//    static LinkedList<LinkedList<? extends Printable>> dbTable;
     
     abstract void print(String ttype);
     

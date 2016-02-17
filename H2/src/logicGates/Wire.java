@@ -27,9 +27,6 @@ public class Wire extends Printable {
         // Static table stuff
         if(table == null) table = new LinkedList<>();
         if(!table.contains(this))table.add(this);
-        
-        if(dbTable == null) dbTable = new LinkedList<>();
-        if(!dbTable.contains(table))dbTable.add(table);
     }
     
     public Wire( InputPort o, Gate i, String name) {
@@ -71,11 +68,15 @@ public class Wire extends Printable {
     public boolean isUsed() {
 	    // is there an wire connected to pins that are used?
 	    // TODO
-        return false;
+        if(!startsAt.isUsed())return false;
+        if(!endsAt.isUsed()) return false;
+        return true;
     }
     
     public static boolean verify() {
-	// TODO
+        for(Wire wire : table){
+            if(!wire.isUsed()) return false;
+        }
 	return true;
     }
     

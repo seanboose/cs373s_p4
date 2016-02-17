@@ -52,17 +52,21 @@ public abstract class Gate extends Printable {
         }
         System.out.println(" ).");
     }
+    
+    static LinkedList<LinkedList<Gate>> dbTable;
 
     public static void resetDB() {
-        for(LinkedList<? extends Printable> table : dbTable) table.clear();
+        for(LinkedList<Gate> table : dbTable) table.clear();
         dbTable.clear();
+        Wire.resetTable();
     }
 
     public static void printDB() {
-        for(LinkedList<? extends Printable> table : dbTable){
+        for(LinkedList<Gate> table : dbTable){
             Class c = table.getFirst().getClass();
             printTable(c.getSimpleName(), table);
         }
+        for(Wire wire : Wire.getTable()) wire.print("");
     }
 
     public static <G extends Printable> void printTable(String ttype, LinkedList<G> t) {
@@ -81,7 +85,6 @@ public abstract class Gate extends Printable {
         // are all inputs of every gate used?  that is,
         // is a wire connected to them?
         for(InputPin in : inputs.values()){
-            System.out.println("input: " + in.name);
             if(in.wire == null) return false;
         }
         return true;
@@ -91,7 +94,6 @@ public abstract class Gate extends Printable {
         // are all outputs of every gate used?  that is,
         // is a wire connected to them?
         for(OutputPin out : outputs.values()){
-            System.out.println("output: " + out.name);
             if(out.wire == null) return false;
         }
         return true;
@@ -107,7 +109,6 @@ public abstract class Gate extends Printable {
         
         HashSet<String> check = new HashSet<>();
         for(G item : table){
-            System.out.println("Gate name: " + item.name);
             if(!check.add(item.name)) return false;
             if(!item.allInputsUsed()) return false;
             if(!item.allOutputsUsed()) return false;
@@ -117,14 +118,10 @@ public abstract class Gate extends Printable {
 
     public static boolean verify() {
         // evaluate all constraints on all tables
-        for(LinkedList<? extends Printable> table : dbTable){
-            Class c = table.getFirst().getClass();
-            if(Gate.class.isAssignableFrom(c)){
-                System.out.print("Checking " + c.getSimpleName());
-                System.out.println("... ");
-                System.out.println(Gate.verify("", (LinkedList<Gate>)table));
-            }
+        for(LinkedList<Gate> table : dbTable){
+            if(!Gate.verify("", (LinkedList<Gate>)table)) return false;
         }
+        if(!Wire.verify()) return false;
         return true;
     }
 
