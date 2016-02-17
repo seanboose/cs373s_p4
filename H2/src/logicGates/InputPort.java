@@ -17,7 +17,7 @@ public class InputPort extends Gate {
 
     public InputPort(String name) {
         super(name);
-	// TODO
+        outputs.put("o", new OutputPin("o", this));
     }
     
     public OutputPin getOutput() {

@@ -14,10 +14,13 @@ import logicGates.Wire;
  * @author don
  */
 public class OutputPin {
-    // look at class diagram to see what fields need to be added
+
+    public String name;
+    public Gate parent;
     
     public OutputPin(String name, Gate parent) {
-	    // TODO
+	this.name = name;
+        this.parent = parent;
     }
     
     public void addWire(Wire w) {
@@ -25,13 +28,11 @@ public class OutputPin {
     }
     
     public String toString() {
-	    // TODO
-        return null;
+        return parent.name +"."+ this.name;
     }
     
     public String nameOfGate() {
-	    // TODO
-        return null;
+        return parent.name;
     }
     
     // CONSTRAINT METHODS

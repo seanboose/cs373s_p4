@@ -15,8 +15,12 @@ import java.util.LinkedList;
  */
 public class Wire extends Printable {
     
+    OutputPin startsAt;
+    InputPin endsAt;
+    
     public Wire( OutputPin o, InputPin i ) {
-	    /* TODO */
+        startsAt = o;
+        endsAt = i;
     }
     
     public Wire( InputPort o, Gate i, String name) {
@@ -24,20 +28,21 @@ public class Wire extends Printable {
     }
     
     public Wire( Gate from, String frompin, Gate to, String topin ) {
-       //TODO 
+       this(from.getOutput(frompin), to.getInput(topin));
     }
     
-    public Wire( Gate from, Gate to ,String topin ) {
-       // TODO 
+    public Wire( Gate from, Gate to, String topin ) {
+        this(from.getOutput("o"), to.getInput(topin));
     }
     
     public Wire( Gate from, OutputPort port) {
-       // TODO 
+       this(from.getOutput("o"), port.getInput());
     }
     
     public void print(String x) {
-        // ignore x for this method
-        // TODO
+        System.out.print("wire from ");
+        System.out.print(startsAt.toString() + " to ");
+        System.out.println(endsAt.toString());
     }
     
     // TABLE METHODS

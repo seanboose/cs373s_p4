@@ -17,12 +17,11 @@ public class OutputPort extends Gate {
 
     public OutputPort(String name) {
         super(name);
-	// TODO
+        inputs.put("i", new InputPin("i", this));
     }
     
     public InputPin getInput() { 
-	// TODO
-        return null; 
+        return inputs.get("i"); 
     }
     
     // TABLE METHODS

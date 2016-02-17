@@ -5,6 +5,7 @@
  */
 package logicGates;
 
+import Pins.*;
 import GatesApp.*;
 import java.util.LinkedList;
 
@@ -16,7 +17,8 @@ public class Not extends Gate {
 
     public Not(String name) {
         super(name);
-	// TODO
+        inputs.put("i", new InputPin("i", this));
+        outputs.put("o", new OutputPin("o", this));
     }
     
     // TABLE METHODS

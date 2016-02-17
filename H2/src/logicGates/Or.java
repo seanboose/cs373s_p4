@@ -5,6 +5,7 @@
  */
 package logicGates;
 
+import Pins.*;
 import GatesApp.*;
 import java.util.LinkedList;
 
@@ -16,7 +17,9 @@ public class Or extends Gate {
 
     public Or(String name) {
         super(name);
-	// TODO
+        inputs.put("i1", new InputPin("i1", this));
+        inputs.put("i2", new InputPin("i2", this));
+        outputs.put("o", new OutputPin("o", this));
     }
     
     // TABLE METHODS

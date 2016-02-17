@@ -20,21 +20,35 @@ public abstract class Gate extends Printable {
     HashMap<String, OutputPin> outputs;
 
     public Gate(String name) {
-	    // TODO
+	this.name = name;
+        inputs = new HashMap<String, InputPin>();
+        outputs = new HashMap<String, OutputPin>();
     }
 
     public InputPin getInput(String name) {
-        // TODO -- return InputPin with the requested name
-	return null;
+	return inputs.get(name);
     }
 
     public OutputPin getOutput(String name) {
-	    // TODO
-	    return null;
+	    return outputs.get(name);
     }
 
     public void print(String gateType) {
-	    // TODO
+        System.out.format("%6s gate %8s with inputs ( ", gateType, name);
+        boolean comma = false;
+        for(InputPin pin : inputs.values()){
+            if(comma) System.out.print(", ");
+            else if(!comma) comma = true;
+            System.out.print(pin.toString());
+        }
+        comma = false;
+        System.out.print(" ) and outputs ( ");
+        for(OutputPin pin : outputs.values()){
+            if(comma) System.out.print(", ");
+            else if(!comma) comma = true;
+            System.out.print(pin.toString());
+        }
+        System.out.println(" ).");
     }
 
     // TABLE METHODS
