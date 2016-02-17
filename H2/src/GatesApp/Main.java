@@ -41,6 +41,7 @@ public class Main {
         new Wire(b, a1, "i2");
         new Wire(a1, a2, "i1");
         new Wire(c, a2, "i2");
+        new Wire(a2, r);
 
         if (!Feature.tables)
             return;

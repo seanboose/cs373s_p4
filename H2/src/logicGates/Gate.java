@@ -72,41 +72,59 @@ public abstract class Gate extends Printable {
     }
 
     // CONSTRAINT METHODS
-
     public boolean extra() {  
 	// subclasses override this method if something special needs to be done
         return true;
     }
 
     public boolean allInputsUsed() {
-	    // are all inputs of every gate used?  that is,
-	    // is a wire connected to them?
-	    // TODO
+        // are all inputs of every gate used?  that is,
+        // is a wire connected to them?
+        for(InputPin in : inputs.values()){
+            System.out.println("input: " + in.name);
+            if(in.wire == null) return false;
+        }
         return true;
     }
 
     public boolean allOutputsUsed() {
-	    // are all outputs of every gate used?  that is,
-	    // is a wire connected to them?
-	    // TODO
+        // are all outputs of every gate used?  that is,
+        // is a wire connected to them?
+        for(OutputPin out : outputs.values()){
+            System.out.println("output: " + out.name);
+            if(out.wire == null) return false;
+        }
         return true;
     }
-
+    
     public static <G extends Gate> boolean verify(String label, LinkedList<G> table) {
-	// TODO
 	// evaluate the following constraints
 	// 1. every gate of type G has a unique name
 	// 2. every gate of type G has all of its inputs used (see above)
 	// 3. every gate of type G has all of its outputs used (see above)
 	// 4. any constraint you might think that is particular to
 	//    gates of type G, evaluate it see extra() above
-
+        
+        HashSet<String> check = new HashSet<>();
+        for(G item : table){
+            System.out.println("Gate name: " + item.name);
+            if(!check.add(item.name)) return false;
+            if(!item.allInputsUsed()) return false;
+            if(!item.allOutputsUsed()) return false;
+        }
         return true;
     }
 
     public static boolean verify() {
-	    // TODO
-	    // evaluate all constraints on all tables
+        // evaluate all constraints on all tables
+        for(LinkedList<? extends Printable> table : dbTable){
+            Class c = table.getFirst().getClass();
+            if(Gate.class.isAssignableFrom(c)){
+                System.out.print("Checking " + c.getSimpleName());
+                System.out.println("... ");
+                System.out.println(Gate.verify("", (LinkedList<Gate>)table));
+            }
+        }
         return true;
     }
 

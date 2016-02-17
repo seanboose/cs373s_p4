@@ -17,6 +17,7 @@ public class OutputPin {
 
     public String name;
     public Gate parent;
+    public Wire wire;
     
     public OutputPin(String name, Gate parent) {
 	this.name = name;
@@ -24,7 +25,7 @@ public class OutputPin {
     }
     
     public void addWire(Wire w) {
-	    // TODO
+	wire = w;
     }
     
     public String toString() {

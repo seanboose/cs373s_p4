@@ -21,7 +21,10 @@ public class Wire extends Printable {
     public Wire( OutputPin o, InputPin i ) {
         startsAt = o;
         endsAt = i;
+        o.addWire(this);
+        i.addWire(this);
 
+        // Static table stuff
         if(table == null) table = new LinkedList<>();
         if(!table.contains(this))table.add(this);
         
