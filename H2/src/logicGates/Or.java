@@ -20,19 +20,22 @@ public class Or extends Gate {
         inputs.put("i1", new InputPin("i1", this));
         inputs.put("i2", new InputPin("i2", this));
         outputs.put("o", new OutputPin("o", this));
+
+        if(table == null) table = new LinkedList<>();
+        if(!table.contains(this))table.add(this);
+        if(!dbTable.contains(table))dbTable.add(table);
     }
     
     // TABLE METHODS
     
-    static LinkedList<Or> table;
+    static LinkedList<Gate> table;
     
     public static void resetTable() {
-        // TODO
+        table = new LinkedList<>();
     }
     
-    public static LinkedList<Or> getTable() { 
-	// TODO
-        return null;
+    public static LinkedList<Gate> getTable() { 
+        return table;
     }
     
     // EVAL METHODS

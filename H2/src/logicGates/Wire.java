@@ -21,6 +21,12 @@ public class Wire extends Printable {
     public Wire( OutputPin o, InputPin i ) {
         startsAt = o;
         endsAt = i;
+
+        if(table == null) table = new LinkedList<>();
+        if(!table.contains(this))table.add(this);
+        
+        if(dbTable == null) dbTable = new LinkedList<>();
+        if(!dbTable.contains(table))dbTable.add(table);
     }
     
     public Wire( InputPort o, Gate i, String name) {
@@ -50,12 +56,11 @@ public class Wire extends Printable {
     static LinkedList<Wire> table;
     
     public static void resetTable() {
-        // TODO
+        table = new LinkedList<>();
     }
     
     public static LinkedList<Wire> getTable() { 
-       // TODO 
-       return null; 
+       return table; 
     }
     
     // CONSTRAINT METHODS

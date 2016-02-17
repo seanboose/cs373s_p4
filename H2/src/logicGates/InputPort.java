@@ -18,6 +18,10 @@ public class InputPort extends Gate {
     public InputPort(String name) {
         super(name);
         outputs.put("o", new OutputPin("o", this));
+        
+        if(table == null) table = new LinkedList<>();
+        if(!table.contains(this))table.add(this);
+        if(!dbTable.contains(table))dbTable.add(table);
     }
     
     public OutputPin getOutput() {
@@ -29,12 +33,11 @@ public class InputPort extends Gate {
     static LinkedList<Gate> table;
     
     public static void resetTable() {
-        // TODO
+        table = new LinkedList<>();
     }
     
     public static LinkedList<Gate> getTable() { 
-	// TODO
-        return null;
+        return table;
     }
     
     // EVAL METHODS

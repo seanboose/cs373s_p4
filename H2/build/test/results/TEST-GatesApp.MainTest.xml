@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="wireless-10-147-197-41.public.utexas.edu" name="GatesApp.MainTest" skipped="0" tests="3" time="0.477" timestamp="2016-02-17T18:34:27">
+<testsuite errors="0" failures="0" hostname="wireless-10-147-197-41.public.utexas.edu" name="GatesApp.MainTest" skipped="0" tests="3" time="0.354" timestamp="2016-02-17T20:26:28">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -57,7 +57,7 @@
     <property name="copylibs.rebase" value="true" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner GatesApp.MainTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/terriBoose/repos/cs373s_softwaredesign/p4/H2/build/test/results/TEST-GatesApp.MainTest.xml crashfile=/Users/terriBoose/repos/cs373s_softwaredesign/p4/H2/build/junitvmwatcher1683218126108051237.properties propsfile=/Users/terriBoose/repos/cs373s_softwaredesign/p4/H2/build/junit3338189566771999600.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner GatesApp.MainTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/terriBoose/repos/cs373s_softwaredesign/p4/H2/build/test/results/TEST-GatesApp.MainTest.xml crashfile=/Users/terriBoose/repos/cs373s_softwaredesign/p4/H2/build/junitvmwatcher3895453134976532088.properties propsfile=/Users/terriBoose/repos/cs373s_softwaredesign/p4/H2/build/junit572268196446535620.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -397,9 +397,9 @@
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="/Applications/NetBeans/NetBeans 8.1.app/Contents/Resources/NetBeans/enterprise/docs/javaee-doc-api.jar" />
   </properties>
-  <testcase classname="GatesApp.MainTest" name="h2Example" time="0.003" />
-  <testcase classname="GatesApp.MainTest" name="aEQb" time="0.0" />
-  <testcase classname="GatesApp.MainTest" name="aNEb" time="0.001" />
+  <testcase classname="GatesApp.MainTest" name="h2Example" time="0.051" />
+  <testcase classname="GatesApp.MainTest" name="aEQb" time="0.025" />
+  <testcase classname="GatesApp.MainTest" name="aNEb" time="0.04" />
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

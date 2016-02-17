@@ -37,17 +37,10 @@ public class Main {
         And a1 = new And("a1");
         And a2 = new And("a2");
 
-        a1.print("And");
-        a2.print("And");
-        a.print("InputPort");
-        b.print("InputPort");
-        c.print("InputPort");
-        r.print("OutputPort");
-
-        new Wire(a, a1, "i1").print("");
-        new Wire(b, a1, "i2").print("");
-        new Wire(a1, a2, "i1").print("");
-        new Wire(c, a2, "i2").print("");
+        new Wire(a, a1, "i1");
+        new Wire(b, a1, "i2");
+        new Wire(a1, a2, "i1");
+        new Wire(c, a2, "i2");
 
         if (!Feature.tables)
             return;

@@ -23,6 +23,8 @@ public abstract class Gate extends Printable {
 	this.name = name;
         inputs = new HashMap<String, InputPin>();
         outputs = new HashMap<String, OutputPin>();
+        
+        if(dbTable == null) dbTable = new LinkedList<>();
     }
 
     public InputPin getInput(String name) {
@@ -34,7 +36,7 @@ public abstract class Gate extends Printable {
     }
 
     public void print(String gateType) {
-        System.out.format("%6s gate %8s with inputs ( ", gateType, name);
+        System.out.format("%6s gate %10s with inputs ( ", gateType, name);
         boolean comma = false;
         for(InputPin pin : inputs.values()){
             if(comma) System.out.print(", ");
@@ -51,14 +53,16 @@ public abstract class Gate extends Printable {
         System.out.println(" ).");
     }
 
-    // TABLE METHODS
-
     public static void resetDB() {
-	    // TODO
+        for(LinkedList<? extends Printable> table : dbTable) table.clear();
+        dbTable.clear();
     }
 
     public static void printDB() {
-	    // TODO
+        for(LinkedList<? extends Printable> table : dbTable){
+            Class c = table.getFirst().getClass();
+            printTable(c.getSimpleName(), table);
+        }
     }
 
     public static <G extends Printable> void printTable(String ttype, LinkedList<G> t) {

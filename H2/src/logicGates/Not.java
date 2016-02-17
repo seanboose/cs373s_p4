@@ -19,19 +19,22 @@ public class Not extends Gate {
         super(name);
         inputs.put("i", new InputPin("i", this));
         outputs.put("o", new OutputPin("o", this));
+
+        if(table == null) table = new LinkedList<>();
+        if(!table.contains(this))table.add(this);
+        if(!dbTable.contains(table))dbTable.add(table);
     }
     
     // TABLE METHODS
     
-    static LinkedList<Not> table;
+    static LinkedList<Gate> table;
     
     public static void resetTable() {
-        // TODO
+        table = new LinkedList<>();
     }
     
-    public static LinkedList<Not> getTable() { 
-	// TODO
-        return null;
+    public static LinkedList<Gate> getTable() { 
+        return table;
     }
     
     // EVAL METEHODS
