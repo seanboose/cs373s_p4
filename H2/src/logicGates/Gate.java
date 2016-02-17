@@ -56,8 +56,10 @@ public abstract class Gate extends Printable {
     static LinkedList<LinkedList<Gate>> dbTable;
 
     public static void resetDB() {
-        for(LinkedList<Gate> table : dbTable) table.clear();
-        dbTable.clear();
+        if(dbTable != null){
+            for(LinkedList<Gate> table : dbTable) table.clear();
+            dbTable.clear();
+        }
         Wire.resetTable();
     }
 

@@ -41,14 +41,11 @@ public class And extends Gate {
     // EVALUATION METHODS
     
     public Value getValue() { 
-        /* Value v1 = i1.getValue();
-           Value v2 = i2.getValue();
-           if (v1==Value.TRUE && v2==Value.TRUE)
-               return Value.TRUE;
-        else
-            return Value.FALSE;
-        */
-        return Value.UNKNOWN;
+        Value v1 = getInput("i1").getValue();
+        Value v2 = getInput("i2").getValue();
+        if (v1==Value.TRUE && v2==Value.TRUE)
+            return Value.TRUE;
+        return Value.FALSE;
     }
     
 }

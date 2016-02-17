@@ -17,7 +17,7 @@ public class Not extends Gate {
 
     public Not(String name) {
         super(name);
-        inputs.put("i", new InputPin("i", this));
+        inputs.put("i1", new InputPin("i1", this));
         outputs.put("o", new OutputPin("o", this));
 
         if(table == null) table = new LinkedList<>();
@@ -40,8 +40,8 @@ public class Not extends Gate {
     // EVAL METEHODS
     
     public Value getValue() {
-	// TODO
-        return Value.UNKNOWN;
+	if(inputs.get("i1").getValue() == Value.TRUE) return Value.FALSE;
+        return Value.TRUE;
     }
     
 }

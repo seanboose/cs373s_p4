@@ -44,6 +44,6 @@ public class OutputPort extends Gate {
     
     public Value getValue() {
 	// TODO
-        return Value.UNKNOWN; 
+        return getInput().getValue(); 
     }
 }

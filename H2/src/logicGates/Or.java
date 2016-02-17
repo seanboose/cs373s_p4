@@ -42,6 +42,9 @@ public class Or extends Gate {
             
     public Value getValue() { 
         // TODO
-        return Value.UNKNOWN;
+        Value v1 = getInput("i1").getValue();
+        Value v2 = getInput("i2").getValue();
+        if(v1 == Value.TRUE || v2 == Value.TRUE) return Value.TRUE;
+        return Value.FALSE;
     }
 }

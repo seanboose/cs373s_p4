@@ -64,6 +64,7 @@ public class Main {
         c.setValue(Value.TRUE);
 
         Value rvalue = r.getValue();
+//        System.out.println("value: " + rvalue.toString());
         if (rvalue != Value.TRUE) {
             System.out.println("r value is wrong");
         } else {

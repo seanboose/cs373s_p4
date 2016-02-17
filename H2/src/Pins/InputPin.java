@@ -45,7 +45,6 @@ public class InputPin {
     // EVALUATION METHODS
     
     public Value getValue() {
-	    // TODO
-        return Value.UNKNOWN; 
+        return wire.getValue(); 
     }
 }

@@ -46,6 +46,6 @@ public class OutputPin {
     
     public Value getValue() {
         // TODO
-        return Value.UNKNOWN;
+        return parent.getValue();
     }
 }

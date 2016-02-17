@@ -45,11 +45,10 @@ public class InputPort extends Gate {
     Value value = Value.UNKNOWN;
         
     public void setValue(Value v) {
-         // TODO
+        value = v;
     }
     
     public Value getValue() {
-	 // TODO
-        return Value.UNKNOWN;
+        return value;
     }
 }

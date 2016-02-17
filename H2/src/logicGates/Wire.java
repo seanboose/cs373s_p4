@@ -56,7 +56,7 @@ public class Wire extends Printable {
     static LinkedList<Wire> table;
     
     public static void resetTable() {
-        table = new LinkedList<>();
+        if(table != null) table.clear();
     }
     
     public static LinkedList<Wire> getTable() { 
@@ -83,8 +83,6 @@ public class Wire extends Printable {
     // EVAL METHODS
     
     public Value getValue() {
-        //  return o.getValue();
-        // TODO
-        return Value.UNKNOWN;
+          return startsAt.getValue();
     }
 }
